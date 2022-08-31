@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="dark.composer.movie_db.presentation.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_actorFragment"
+            app:destination="@id/actorFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/actorFragment"
+        android:name="dark.composer.movie_db.presentation.actor.ActorFragment"
+        android:label="fragment_actor"
+        tools:layout="@layout/fragment_actor" />
+
+    <fragment
+        android:id="@+id/movieFragment"
+        android:name="dark.composer.movie_db.presentation.kino.MovieFragment"
+        android:label="fragment_movie"
+        tools:layout="@layout/fragment_movie" />
+</navigation>
