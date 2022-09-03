@@ -71,6 +71,7 @@ class DetailsFragment : BaseFragment<FragmentDeatilsBinding>(FragmentDeatilsBind
         getPopularMovies()
     }
 
+
     @SuppressLint("SetTextI18n")
     private fun observe() {
         viewLifecycleOwner.lifecycleScope.launch {
