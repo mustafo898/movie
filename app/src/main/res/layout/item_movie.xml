@@ -1,34 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="170dp"
-    android:layout_height="250dp"
-    android:layout_margin="8dp"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="160dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="@color/bg"
+    app:cardUseCompatPadding="true"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatImageView
+    <ImageView
         android:id="@+id/image"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:scaleType="fitXY"
-        android:src="@drawable/gradient" />
+        android:layout_height="match_parent"
+        android:src="@drawable/pauk2"
+        android:scaleType="centerCrop"/>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/name"
-        android:fontFamily="@font/lexend_medium"
-        android:text="Name Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:textColor="@color/black" />
-
-    <androidx.appcompat.widget.AppCompatRatingBar
-        android:id="@+id/ratingBar"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:isIndicator="true"
-        android:numStars="10"
-        android:stepSize="0.1" />
-</androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.cardview.widget.CardView>

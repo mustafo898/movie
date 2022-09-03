@@ -7,26 +7,44 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="dark.composer.movie_db.presentation.main.MainFragment"
+        android:name="dark.composer.movie_db.presentation.home.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_movieFragment"
-            app:destination="@id/movieFragment" />
+            android:id="@+id/action_mainFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
         <action
-            android:id="@+id/action_mainFragment_to_actorFragment"
-            app:destination="@id/actorFragment" />
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
-
     <fragment
-        android:id="@+id/actorFragment"
-        android:name="dark.composer.movie_db.presentation.actor.ActorFragment"
-        android:label="fragment_actor"
-        tools:layout="@layout/fragment_actor" />
-
+        android:id="@+id/detailsFragment"
+        android:name="dark.composer.movie_db.presentation.detail.DetailsFragment"
+        android:label="fragment_deatils"
+        tools:layout="@layout/fragment_deatils" />
     <fragment
-        android:id="@+id/movieFragment"
-        android:name="dark.composer.movie_db.presentation.kino.MovieFragment"
-        android:label="fragment_movie"
-        tools:layout="@layout/fragment_movie" />
+        android:id="@+id/searchFragment"
+        android:name="dark.composer.movie_db.presentation.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personFragment"
+        android:name="dark.composer.movie_db.presentation.person.PersonFragment"
+        android:label="fragment_watched"
+        tools:layout="@layout/fragment_person" >
+
+        <action
+            android:id="@+id/action_personFragment_to_personDetailFragment"
+            app:destination="@id/personDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personDetailFragment"
+        android:name="dark.composer.movie_db.presentation.person_detail.PersonDetailFragment"
+        android:label="fragment_person_detail"
+        tools:layout="@layout/fragment_person_detail" />
+
 </navigation>

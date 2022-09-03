@@ -1,94 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.main.MainFragment">
+    android:background="@color/bg"
+    tools:context=".presentation.home.MainFragment">
 
-    <ScrollView
-        android:id="@+id/scroll"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/par"
+        <TextView
+            android:id="@+id/t1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="42dp"
+            android:textSize="20sp"
+            android:text="@string/what_do_you_want_to_watch"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/t1"
+            android:src="@drawable/search"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@id/t1"
+            android:background="@android:color/transparent"
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tint="@color/white" />
+
+        <TextView
+            android:id="@+id/top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/t1"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:text="Top Rated"
+            android:textColor="@color/white"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/topList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/top"
+            tools:layout_editor_absoluteX="-183dp"
+            tools:listitem="@layout/item_news_movies" />
 
-            <com.denzcoskun.imageslider.ImageSlider
-                android:id="@+id/imageSlider"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                app:iss_auto_cycle="true"
-                app:iss_delay="0"
-                app:iss_period="1500"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/topList"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:text="Now PLaying"
+            android:textColor="@color/white"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/movieList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/movies_genres" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/nowList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/now"
+            tools:layout_editor_absoluteX="-183dp"
+            tools:listitem="@layout/item_news_movies" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/actorList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintTop_toBottomOf="@+id/actor"
-                tools:layout_editor_absoluteX="0dp" />
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/nowList"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/transparent"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextColor="@color/white"
+            app:tabIndicatorColor="@color/search_bg"
+            app:tabIndicatorHeight="3dp"
+            app:tabMode="scrollable"
+            android:layout_height="wrap_content"
+            android:id="@+id/tab"/>
 
-            <TextView
-                android:id="@+id/actor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="Actor ->"
-                android:textColor="@color/black"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/topMovieList" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/moviesList"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tab"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="3"
+            tools:listitem="@layout/item_movie"
+            android:layout_marginTop="16dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/movies_genres"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/actorList"
-                app:tabGravity="center"
-                android:background="@color/black"
-                app:tabIndicatorColor="@color/white"
-                app:tabIndicatorHeight="2dp"
-                app:tabMode="scrollable"
-                app:tabRippleColor="@color/white"
-                app:tabSelectedTextColor="@color/white"
-                app:tabTextColor="#6B605A" />
-
-
-            <com.google.android.material.tabs.TabLayout
-                android:id="@+id/popular_genres"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/imageSlider"
-                app:tabGravity="center"
-                android:background="@color/black"
-                app:tabIndicatorColor="@color/white"
-                app:tabIndicatorHeight="2dp"
-                app:tabMode="scrollable"
-                app:tabRippleColor="@color/white"
-                app:tabSelectedTextColor="@color/white"
-                app:tabTextColor="#6B605A" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/topMovieList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@+id/popular_genres"
-                tools:layout_editor_absoluteX="0dp" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

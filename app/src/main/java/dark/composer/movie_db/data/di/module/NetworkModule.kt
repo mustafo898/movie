@@ -8,7 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dark.composer.movie_db.data.retrofit.ApiService
+import dark.composer.movie_db.data.remote.ApiService
 import dark.composer.movie_db.utils.Constants
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -18,6 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 @Module
 @InstallIn(SingletonComponent::class)
 object NetworkModule {
+
     @Provides
     fun provideRetrofit(httpLoggingInterceptor: HttpLoggingInterceptor): Retrofit {
         return Retrofit.Builder().apply {

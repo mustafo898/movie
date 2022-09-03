@@ -1,4 +1,4 @@
-//package uz.micro.star.movie_db.data.di.module
+//package dark.composer.movie_db.data.di.module
 //
 //import android.content.Context
 //import dagger.Module
