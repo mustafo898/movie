@@ -10,15 +10,17 @@ import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import dark.composer.movie_db.R
 import dark.composer.movie_db.data.base.BaseNetworkResult
+import dark.composer.movie_db.databinding.FragmentMainBinding
 import dark.composer.movie_db.presentation.BaseFragment
 import dark.composer.movie_db.presentation.adapter.MovieAdapter
 import dark.composer.movie_db.presentation.adapter.TopRatedAdapter
-import dark.composer.movie_db.databinding.FragmentMainBinding
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
+class
+MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::inflate) {
     private val viewModel: MainViewModel by viewModels()
+
     private val movieAdapter by lazy {
         MovieAdapter()
     }
@@ -28,7 +30,6 @@ class MainFragment : BaseFragment<FragmentMainBinding>(FragmentMainBinding::infl
     }
 
     override fun onViewCreate() {
-
         binding.moviesList.adapter = movieAdapter
         binding.topList.adapter = topAdapter
         send()
